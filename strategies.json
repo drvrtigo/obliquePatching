@@ -1,0 +1,602 @@
+[
+  {
+    "id": "s001",
+    "prompt": "Modulate your modulator.",
+    "detail": "Change the rate, depth, or shape of something already creating movement. Let the motion itself evolve."
+  },
+  {
+    "id": "s002",
+    "prompt": "Exchange the source and the destination.",
+    "detail": "Reverse a control relationship using appropriate inputs and outputs. Listen to what changes when another part leads."
+  },
+  {
+    "id": "s003",
+    "prompt": "Let two voices share one control.",
+    "detail": "Send the same gesture to different destinations. Find a relationship rather than identical behavior."
+  },
+  {
+    "id": "s004",
+    "prompt": "Interrupt a connection instead of adding one.",
+    "detail": "Remove a control signal. Notice which movements were useful and which were merely keeping things busy."
+  },
+  {
+    "id": "s005",
+    "prompt": "Patch the output back toward the beginning.",
+    "detail": "Explore a feedback path through attenuation. Start the return at zero and raise it slowly with monitoring low."
+  },
+  {
+    "id": "s006",
+    "prompt": "Put something unexpected under voltage control.",
+    "detail": "Choose a parameter you usually leave fixed. Start with a small range of movement."
+  },
+  {
+    "id": "s007",
+    "prompt": "Use one signal in two different roles.",
+    "detail": "Let a contour shape sound and structure, or let a clock influence rhythm and timbre."
+  },
+  {
+    "id": "s008",
+    "prompt": "Make the voices influence each other.",
+    "detail": "Let an event in one part change another part’s behavior. Aim for a conversation rather than independent loops."
+  },
+  {
+    "id": "s009",
+    "prompt": "Take the longest route to a simple result.",
+    "detail": "Give a familiar control an extra transformation. Keep the detour only if it reveals something worth hearing."
+  },
+  {
+    "id": "s010",
+    "prompt": "Give an unused output a job.",
+    "detail": "Try an alternate waveform or an overlooked control output. Let what is available suggest the next move."
+  },
+  {
+    "id": "s011",
+    "prompt": "Let the slower clock lead.",
+    "detail": "Organize the patch around its longest cycle. Treat faster events as details inside that larger phrase."
+  },
+  {
+    "id": "s012",
+    "prompt": "Remove the downbeat.",
+    "detail": "Mute the event that announces the beginning. Listen for where your sense of the first beat moves."
+  },
+  {
+    "id": "s013",
+    "prompt": "Make one event arrive late.",
+    "detail": "Delay a trigger or shift one step. Change the feel without rebuilding the pattern."
+  },
+  {
+    "id": "s014",
+    "prompt": "Let a rest become the hook.",
+    "detail": "Create a gap that listeners can anticipate. Protect the absence instead of filling it."
+  },
+  {
+    "id": "s015",
+    "prompt": "Change the rhythm, not the sounds.",
+    "detail": "Leave tuning and timbre alone. Work only with when events happen and how long they remain."
+  },
+  {
+    "id": "s016",
+    "prompt": "Give one voice a different sense of time.",
+    "detail": "Let it pause, drift, or repeat on another cycle. Keep something else stable enough to reveal the contrast."
+  },
+  {
+    "id": "s017",
+    "prompt": "Repeat until the detail becomes the subject.",
+    "detail": "Hold the larger pattern steady. Listen for differences you would normally overlook."
+  },
+  {
+    "id": "s018",
+    "prompt": "Make the sequence shorter and the evolution longer.",
+    "detail": "Reduce the number of steps. Let slow changes in articulation or timbre provide the longer journey."
+  },
+  {
+    "id": "s019",
+    "prompt": "Let the envelope keep time.",
+    "detail": "Use an end-of-cycle output, if available, to trigger or advance something else. Let the contour’s duration shape the pace."
+  },
+  {
+    "id": "s020",
+    "prompt": "Stop one thing before starting another.",
+    "detail": "Make a clear handoff between parts. Let the change in occupancy become an arrangement gesture."
+  },
+  {
+    "id": "s021",
+    "prompt": "Try a different key.",
+    "detail": "Transpose the musical material while preserving its internal relationships. Listen for a different register or mood."
+  },
+  {
+    "id": "s022",
+    "prompt": "Keep the rhythm. Replace the notes.",
+    "detail": "Preserve the event pattern and articulation. Change only the pitches to hear what the rhythm contributes."
+  },
+  {
+    "id": "s023",
+    "prompt": "Hold one note against everything else.",
+    "detail": "Choose a stable reference pitch. Let moving parts create changing relationships around it."
+  },
+  {
+    "id": "s024",
+    "prompt": "Let the bass choose the harmony.",
+    "detail": "Keep upper voices in place and change the low note. Hear how the same material acquires another meaning."
+  },
+  {
+    "id": "s025",
+    "prompt": "Move one voice an octave away.",
+    "detail": "Change register before changing melody. Listen for separation, weight, or an unexpected collision."
+  },
+  {
+    "id": "s026",
+    "prompt": "Use fewer pitches than you think you need.",
+    "detail": "Remove notes until each remaining pitch has a clear role. Let rhythm and articulation carry more interest."
+  },
+  {
+    "id": "s027",
+    "prompt": "Change the intervals, not the root.",
+    "detail": "Keep a tonal anchor while changing the distances around it. Explore another harmonic character without moving home."
+  },
+  {
+    "id": "s028",
+    "prompt": "Let a melody become a texture.",
+    "detail": "Blur individual events through overlap, repetition, or processing. Keep a trace of the original contour."
+  },
+  {
+    "id": "s029",
+    "prompt": "Approach a familiar note from an unfamiliar direction.",
+    "detail": "Change the note before the destination or alter the slide into it. Keep the arrival and reinvent the approach."
+  },
+  {
+    "id": "s030",
+    "prompt": "Leave one voice slightly out of agreement.",
+    "detail": "Try a small tuning or timing offset. Find where tension becomes expressive rather than distracting."
+  },
+  {
+    "id": "s031",
+    "prompt": "Consider dynamics.",
+    "detail": "Is every event equally important? Change loudness, duration, density, or the space around a sound."
+  },
+  {
+    "id": "s032",
+    "prompt": "Make the loudest sound the rarest.",
+    "detail": "Reserve the strongest accent for an occasional event. Let scarcity give it significance."
+  },
+  {
+    "id": "s033",
+    "prompt": "Shape the ending before the beginning.",
+    "detail": "Focus on release, decay, or the effect tail. Let how a sound leaves determine how it should arrive."
+  },
+  {
+    "id": "s034",
+    "prompt": "Let one voice breathe while another holds.",
+    "detail": "Contrast a changing amplitude contour with a sustained presence. Listen to what each reveals about the other."
+  },
+  {
+    "id": "s035",
+    "prompt": "Make the quietest layer essential.",
+    "detail": "Lower a supporting sound until you almost lose it. Give it a role you notice when it disappears."
+  },
+  {
+    "id": "s036",
+    "prompt": "Give repetition a changing accent.",
+    "detail": "Keep the events in place while varying emphasis. Let dynamics redraw the phrase."
+  },
+  {
+    "id": "s037",
+    "prompt": "Use amplitude where you would usually use timbre.",
+    "detail": "Before moving a filter or waveshape, try moving a VCA. Explore whether loudness alone can make the gesture work."
+  },
+  {
+    "id": "s038",
+    "prompt": "Make one gesture smaller.",
+    "detail": "Reduce a modulation range or performance movement. Search for the narrow region where small changes matter."
+  },
+  {
+    "id": "s039",
+    "prompt": "Let the sound disappear before it is finished.",
+    "detail": "Close a VCA or mute a phrase before its expected resolution. Leave the continuation to the listener."
+  },
+  {
+    "id": "s040",
+    "prompt": "Give the background the foreground’s envelope.",
+    "detail": "Apply a related contour to an atmosphere or secondary voice. Let the background reveal the main event’s shape."
+  },
+  {
+    "id": "s041",
+    "prompt": "Listen to the transition, not the destination.",
+    "detail": "Move slowly between two settings. Stop where the passage becomes more interesting than either endpoint."
+  },
+  {
+    "id": "s042",
+    "prompt": "Remove the effect that makes everything sound good.",
+    "detail": "Bypass your most flattering processor. Find what the underlying patch still needs—or no longer needs."
+  },
+  {
+    "id": "s043",
+    "prompt": "Make the dry sound worth hearing.",
+    "detail": "Temporarily remove ambience and repeats. Work on the source until it has its own reason to exist."
+  },
+  {
+    "id": "s044",
+    "prompt": "Treat noise as a voice.",
+    "detail": "Give noise phrasing, register, and dynamics. Ask it to play a part rather than merely add texture."
+  },
+  {
+    "id": "s045",
+    "prompt": "Move the motion from pitch to timbre.",
+    "detail": "Hold the note steady and redirect the changing contour toward tone shaping. Attenuate to suit the new destination."
+  },
+  {
+    "id": "s046",
+    "prompt": "Give the brightest sound the least space.",
+    "detail": "Try a dry, close presentation for the sharpest element. Let other sounds provide the surrounding depth."
+  },
+  {
+    "id": "s047",
+    "prompt": "Build depth without adding another voice.",
+    "detail": "Work with level, register, filtering, or ambience. Create distance instead of population."
+  },
+  {
+    "id": "s048",
+    "prompt": "Listen only to what the effect returns.",
+    "detail": "Mute the dry path temporarily. Decide whether the transformed sound could become the main material."
+  },
+  {
+    "id": "s049",
+    "prompt": "Let a resonance become the subject.",
+    "detail": "Find a ringing frequency worth following. Shape the patch around it, keeping monitoring low as resonance rises."
+  },
+  {
+    "id": "s050",
+    "prompt": "Make a harsh sound behave gently.",
+    "detail": "Keep its rough texture but soften its entrance, level, or phrasing. Separate its character from its behavior."
+  },
+  {
+    "id": "s051",
+    "prompt": "Remove the part you are protecting.",
+    "detail": "Mute the element you believe makes the patch work. Listen for what becomes possible without it."
+  },
+  {
+    "id": "s052",
+    "prompt": "Finish with the modules already patched.",
+    "detail": "Stop looking for another device. Find the missing gesture through relationships already available."
+  },
+  {
+    "id": "s053",
+    "prompt": "Change only one connection.",
+    "detail": "Choose a cable deliberately. Listen long enough to understand the consequences before changing anything else."
+  },
+  {
+    "id": "s054",
+    "prompt": "Leave the best knob alone.",
+    "detail": "Protect the setting you keep returning to. Develop the patch through a less familiar control."
+  },
+  {
+    "id": "s055",
+    "prompt": "Listen without touching.",
+    "detail": "Let several cycles pass with your hands away. Notice what the patch actually does rather than what you intend to fix."
+  },
+  {
+    "id": "s056",
+    "prompt": "Follow the accident, not the plan.",
+    "detail": "Find an unintended result worth keeping. Let it redirect the patch instead of correcting it immediately."
+  },
+  {
+    "id": "s057",
+    "prompt": "Make the patch playable with one gesture.",
+    "detail": "Choose a control that changes the patch meaningfully. Make the surrounding relationships support that gesture."
+  },
+  {
+    "id": "s058",
+    "prompt": "Record before you understand it.",
+    "detail": "Capture a pass while the patch is still surprising. Understanding can follow the performance."
+  },
+  {
+    "id": "s059",
+    "prompt": "Stop adding. Start arranging.",
+    "detail": "Use entrances, exits, contrasts, and returns. Make a piece from the material already present."
+  },
+  {
+    "id": "s060",
+    "prompt": "End while something is still unresolved.",
+    "detail": "Choose an ending that leaves a little energy in the system. Resist explaining every possibility."
+  },
+  {
+    "id": "s061",
+    "prompt": "Attenuate before you repatch.",
+    "detail": "Reduce the depth of a modulation that feels wrong. The relationship may be useful at a smaller scale."
+  },
+  {
+    "id": "s062",
+    "prompt": "Move the center, not the range.",
+    "detail": "Offset a control signal while keeping its movement similar. Explore another region of the destination’s response."
+  },
+  {
+    "id": "s063",
+    "prompt": "Invert one relationship.",
+    "detail": "Try an inverted control signal where supported. Let one parameter fall while another rises."
+  },
+  {
+    "id": "s064",
+    "prompt": "Make the modulation audible.",
+    "detail": "Try an audio-rate signal at a suitable modulation input. Begin with low depth and listen to the spectral detail."
+  },
+  {
+    "id": "s065",
+    "prompt": "Slow it down until it becomes structure.",
+    "detail": "Reduce a repeating movement until it shapes sections rather than events. Give it time to reveal itself."
+  },
+  {
+    "id": "s066",
+    "prompt": "Sample the movement.",
+    "detail": "Use sample-and-hold to turn a continuous control into steps. Change the sampling rhythm before changing the source."
+  },
+  {
+    "id": "s067",
+    "prompt": "Let chance choose when, not what.",
+    "detail": "Keep a deliberate set of sounds or pitches. Use probability to decide which events are allowed through."
+  },
+  {
+    "id": "s068",
+    "prompt": "Repeat the accident.",
+    "detail": "Capture or recreate an unexpected moment. Find whether repetition turns it into a recognizable musical idea."
+  },
+  {
+    "id": "s069",
+    "prompt": "Give randomness a boundary.",
+    "detail": "Narrow its voltage range, available pitches, or opportunities to act. Leave surprise inside a clear identity."
+  },
+  {
+    "id": "s070",
+    "prompt": "Make one decision permanent.",
+    "detail": "Choose a setting you will not change for the rest of this patch. Let the constraint simplify your next move."
+  },
+  {
+    "id": "s071",
+    "prompt": "Use the opposite waveform.",
+    "detail": "Replace smooth movement with abrupt movement, or the reverse. Keep the destination and change the journey."
+  },
+  {
+    "id": "s072",
+    "prompt": "Let the filter articulate.",
+    "detail": "Hold amplitude more steadily and use the filter contour to shape events. Listen for another kind of emphasis."
+  },
+  {
+    "id": "s073",
+    "prompt": "Separate attack from decay.",
+    "detail": "Let the beginning and the tail receive different treatment. Affect one without dominating the other."
+  },
+  {
+    "id": "s074",
+    "prompt": "Make the echo disagree.",
+    "detail": "Choose repeats that resist the main pulse or pitch center. Keep stability elsewhere to reveal the disagreement."
+  },
+  {
+    "id": "s075",
+    "prompt": "Tune the space.",
+    "detail": "Explore the pitch or color of a resonator, short delay, or reverb. Treat the environment as part of the harmony."
+  },
+  {
+    "id": "s076",
+    "prompt": "Remove the clock.",
+    "detail": "Disconnect the master pulse. Try manual events, free-running contours, or sustained change as another organizing principle."
+  },
+  {
+    "id": "s077",
+    "prompt": "Play the mute.",
+    "detail": "Treat silence as a performance control. Practice deliberate removals instead of continuously adjusting parameters."
+  },
+  {
+    "id": "s078",
+    "prompt": "Use the middle of the knob.",
+    "detail": "Move away from extremes. Find the ambiguous region between two obvious behaviors."
+  },
+  {
+    "id": "s079",
+    "prompt": "Give the patch a horizon.",
+    "detail": "Choose one slow destination for the next few minutes. Let smaller gestures happen inside that larger movement."
+  },
+  {
+    "id": "s080",
+    "prompt": "Let two cycles meet.",
+    "detail": "Use different repeating lengths or rates. Listen for moments when their relationship briefly becomes clear."
+  },
+  {
+    "id": "s081",
+    "prompt": "Keep the error in tune.",
+    "detail": "Preserve a timing or tonal imperfection while giving it a deliberate context. Make surrounding choices support it."
+  },
+  {
+    "id": "s082",
+    "prompt": "Trade complexity for contrast.",
+    "detail": "Simplify one part so another can become distinct. Judge the result by clarity rather than activity."
+  },
+  {
+    "id": "s083",
+    "prompt": "Make the transition the performance.",
+    "detail": "Choose two states and concentrate on moving between them. Avoid treating the passage as dead time."
+  },
+  {
+    "id": "s084",
+    "prompt": "Borrow a contour.",
+    "detail": "Take a control shape already doing useful work and apply it elsewhere. Adjust depth and offset for the new destination."
+  },
+  {
+    "id": "s085",
+    "prompt": "Let the silence modulate you.",
+    "detail": "Pause the patch and notice what you expect next. Resume with that expectation in mind—or deliberately deny it."
+  },
+  {
+    "id": "s086",
+    "prompt": "Find the threshold.",
+    "detail": "Explore where a small change causes a new behavior. Approach slowly with conservative output levels."
+  },
+  {
+    "id": "s087",
+    "prompt": "Commit to the first useful sound.",
+    "detail": "Stop auditioning once something suggests a direction. Develop its relationships before searching for a better source."
+  },
+  {
+    "id": "s088",
+    "prompt": "Make room for a hand.",
+    "detail": "Leave an important change unautomated. Give yourself something simple and consequential to perform."
+  },
+  {
+    "id": "s089",
+    "prompt": "Listen from farther away.",
+    "detail": "Change listening position or lower the monitoring level. Notice which relationships survive the change in perspective."
+  },
+  {
+    "id": "s090",
+    "prompt": "Leave a cable unpatched.",
+    "detail": "Keep one possibility open without using it. Let the patch be complete without exhausting the system."
+  },
+  {
+    "id": "s091",
+    "prompt": "Give the phrase a question mark.",
+    "detail": "Alter the final event so it invites continuation. Let the next cycle answer differently."
+  },
+  {
+    "id": "s092",
+    "prompt": "Begin with the ending.",
+    "detail": "Find the state you want to leave behind. Work backward to discover a useful opening."
+  },
+  {
+    "id": "s093",
+    "prompt": "Let the second voice arrive halfway through.",
+    "detail": "Establish a complete idea before adding its companion. Make the entrance change how the first part is heard."
+  },
+  {
+    "id": "s094",
+    "prompt": "Change the clock division, not the sequence.",
+    "detail": "Preserve the steps and alter how often they advance. Listen for a new role inside the same material."
+  },
+  {
+    "id": "s095",
+    "prompt": "Make an accent open a door.",
+    "detail": "Use an occasional event to permit another process. Let emphasis cause a structural change, not just a louder note."
+  },
+  {
+    "id": "s096",
+    "prompt": "Put the movement between the notes.",
+    "detail": "Keep attacks stable and let modulation act on the spaces or tails. Give the phrase a moving interior."
+  },
+  {
+    "id": "s097",
+    "prompt": "Let a long gate change the rules.",
+    "detail": "Use gate duration to hold a state or extend a contour. Make length matter beyond the trigger’s arrival."
+  },
+  {
+    "id": "s098",
+    "prompt": "Reset less often.",
+    "detail": "Let a cycle travel farther before returning to its starting point. Notice what repeated resets were concealing."
+  },
+  {
+    "id": "s099",
+    "prompt": "Reset something other than the sequence.",
+    "detail": "Try resetting a suitable LFO or another cyclical process. Keep the notes and change their moving surroundings."
+  },
+  {
+    "id": "s100",
+    "prompt": "Let one parameter remain human.",
+    "detail": "Automate the dependable parts and keep one expressive choice manual. Resist smoothing away every irregularity."
+  },
+  {
+    "id": "s101",
+    "prompt": "Make the answer quieter than the question.",
+    "detail": "Create a call and response through dynamics. Let the second gesture acknowledge the first without competing."
+  },
+  {
+    "id": "s102",
+    "prompt": "Take the melody out of the highest voice.",
+    "detail": "Move the most recognizable line lower. Give the upper register a supporting or atmospheric role."
+  },
+  {
+    "id": "s103",
+    "prompt": "Choose a narrower register.",
+    "detail": "Bring the musical material into a smaller pitch space. Find interest in articulation and interaction rather than range."
+  },
+  {
+    "id": "s104",
+    "prompt": "Let one sound occupy the whole phrase.",
+    "detail": "Stretch an event across several expected steps. Hear the rhythm in the changes around it."
+  },
+  {
+    "id": "s105",
+    "prompt": "Build a rhythm from releases.",
+    "detail": "Pay attention to when sounds stop. Shape their endings into a pattern of their own."
+  },
+  {
+    "id": "s106",
+    "prompt": "Make the control path simpler than the audio path.",
+    "detail": "Reduce the number of competing gestures. Let a clear movement travel through a complicated sound."
+  },
+  {
+    "id": "s107",
+    "prompt": "Make the audio path simpler than the control path.",
+    "detail": "Use a plain source and a direct signal chain. Let its behavior carry the complexity."
+  },
+  {
+    "id": "s108",
+    "prompt": "Let the same gesture mean two things.",
+    "detail": "Use attenuation, inversion, or offset so one control produces contrasting changes in different places."
+  },
+  {
+    "id": "s109",
+    "prompt": "Replace a sweep with a switch.",
+    "detail": "Try two deliberate states instead of a continuous journey. Listen to the musical value of the boundary."
+  },
+  {
+    "id": "s110",
+    "prompt": "Replace a switch with a journey.",
+    "detail": "Slew or interpolate a suitable control transition. Explore what happens between the previous states."
+  },
+  {
+    "id": "s111",
+    "prompt": "Keep one layer completely still.",
+    "detail": "Give the ear a place to rest. Let another part reveal the motion around that fixed point."
+  },
+  {
+    "id": "s112",
+    "prompt": "Make the patch answer your playing.",
+    "detail": "Use a suitable envelope follower or manual control to let an external performance influence the system."
+  },
+  {
+    "id": "s113",
+    "prompt": "Try the idea with one oscillator.",
+    "detail": "Reduce the source count before abandoning the musical idea. Find what is essential to its identity."
+  },
+  {
+    "id": "s114",
+    "prompt": "Let the texture keep the pulse.",
+    "detail": "Remove the obvious percussion. Find whether a repeating change in color can imply the beat."
+  },
+  {
+    "id": "s115",
+    "prompt": "Give the loop an exception.",
+    "detail": "Choose one event that occasionally behaves differently. Make the exception rare enough to remain noticeable."
+  },
+  {
+    "id": "s116",
+    "prompt": "Move the tension into the timing.",
+    "detail": "Simplify pitch relationships and create uncertainty through placement, duration, or expectation."
+  },
+  {
+    "id": "s117",
+    "prompt": "Move the tension into the harmony.",
+    "detail": "Steady the rhythm and explore a more unsettled pitch relationship. Let one dimension support another."
+  },
+  {
+    "id": "s118",
+    "prompt": "Treat the first minute as an introduction.",
+    "detail": "Delay the busiest version of the patch. Give the listener time to learn its vocabulary."
+  },
+  {
+    "id": "s119",
+    "prompt": "Find a version that survives without reverb.",
+    "detail": "Keep the musical relationships while removing their atmosphere. Restore space only where it adds meaning."
+  },
+  {
+    "id": "s120",
+    "prompt": "Leave before the loop returns.",
+    "detail": "End the performance at an unexpected point in the cycle. Let the missing return remain implied."
+  }
+]
