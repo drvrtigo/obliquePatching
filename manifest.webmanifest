@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "Patch Otherwise",
-  "short_name": "Patch Otherwise",
+  "name": "Oblique Patching",
+  "short_name": "Oblique Patching",
   "description": "Strategies for modular synthesis.",
   "lang": "en",
   "start_url": "./",
