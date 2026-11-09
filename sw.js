@@ -1,7 +1,7 @@
 "use strict";
 // Change VERSION whenever you change the HTML, CSS, JS, manifest, or icons.
 // JSON-only deck edits do not require a version change.
-const VERSION="1.0.3";
+const VERSION="1.0.4";
 const BASE=self.registration.scope;
 const PREFIX="patch-otherwise-"+encodeURIComponent(new URL(BASE).pathname)+"-";
 const CACHE=PREFIX+VERSION;
