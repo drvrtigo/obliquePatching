@@ -197,7 +197,7 @@ function renderNewCard() {
 }
 
 // --------------------------------------------------
-// Animated card draw
+// Animated card draw — text only
 // --------------------------------------------------
 
 async function draw() {
@@ -223,50 +223,72 @@ async function draw() {
 
   card.setAttribute("aria-busy", "true");
 
-  let fadeOut;
-  let fadeIn;
+  // Target text only, leaving both card backgrounds untouched.
+  const textElements = [
+    ...card.querySelectorAll(
+      ".label, .prompt, .detail, .foot"
+    )
+  ];
+
+  let fadeOutAnimations = [];
+  let fadeInAnimations = [];
 
   try {
-    fadeOut = card.animate(
-      [
-        { opacity: 1 },
-        { opacity: 0 }
-      ],
-      {
-        duration: 160,
-        easing: "ease-in",
-        fill: "forwards"
-      }
+    fadeOutAnimations = textElements.map(element => {
+      return element.animate(
+        [
+          { opacity: 1 },
+          { opacity: 0 }
+        ],
+        {
+          duration: 160,
+          easing: "ease-in",
+          fill: "forwards"
+        }
+      );
+    });
+
+    await Promise.all(
+      fadeOutAnimations.map(animation => animation.finished)
     );
 
-    await fadeOut.finished;
-
-    // Replace the content while the card is invisible.
+    // Replace the strategy while its text is invisible.
     renderNewCard();
 
-    fadeIn = card.animate(
-      [
-        { opacity: 0 },
-        { opacity: 1 }
-      ],
-      {
-        duration: 240,
-        easing: "ease-out",
-        fill: "forwards"
-      }
+    fadeInAnimations = textElements.map(element => {
+      return element.animate(
+        [
+          { opacity: 0 },
+          { opacity: 1 }
+        ],
+        {
+          duration: 240,
+          easing: "ease-out",
+          fill: "forwards"
+        }
+      );
+    });
+
+    // Remove outgoing fades after incoming fades are in place.
+    fadeOutAnimations.forEach(animation => {
+      animation.cancel();
+    });
+
+    await Promise.all(
+      fadeInAnimations.map(animation => animation.finished)
     );
-
-    fadeOut.cancel();
-
-    await fadeIn.finished;
   } catch (error) {
-    // Cancelled animations should not leave controls locked.
     if (error.name !== "AbortError") {
       console.warn("Card transition failed:", error);
     }
   } finally {
-    fadeOut?.cancel();
-    fadeIn?.cancel();
+    fadeOutAnimations.forEach(animation => {
+      animation.cancel();
+    });
+
+    fadeInAnimations.forEach(animation => {
+      animation.cancel();
+    });
 
     drawing = false;
     card.disabled = false;
@@ -419,6 +441,96 @@ window.addEventListener("resize", () => {
 if (document.fonts) {
   document.fonts.ready.then(fitCard);
 }
+
+// --------------------------------------------------
+// Tap ripple
+// --------------------------------------------------
+
+function enableTapRipple(button) {
+  const layer = document.createElement("span");
+
+  layer.className = "tap-ripple-layer";
+  layer.setAttribute("aria-hidden", "true");
+
+  button.appendChild(layer);
+
+  button.addEventListener("pointerdown", event => {
+    if (
+      button.disabled ||
+      loading ||
+      drawing ||
+      !event.isPrimary ||
+      event.button !== 0
+    ) {
+      return;
+    }
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (
+      reduceMotion ||
+      typeof button.animate !== "function"
+    ) {
+      return;
+    }
+
+    const bounds = button.getBoundingClientRect();
+
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+
+    // Reach the farthest corner from the tap position.
+    const radius = Math.hypot(
+      Math.max(x, bounds.width - x),
+      Math.max(y, bounds.height - y)
+    );
+
+    const diameter = radius * 2;
+
+    // Replace any previous ripple on this control.
+    layer.replaceChildren();
+
+    const ripple = document.createElement("span");
+
+    ripple.className = "tap-ripple";
+    ripple.style.width = `${diameter}px`;
+    ripple.style.height = `${diameter}px`;
+    ripple.style.left = `${x - radius}px`;
+    ripple.style.top = `${y - radius}px`;
+
+    layer.appendChild(ripple);
+
+    const animation = ripple.animate(
+      [
+        {
+          transform: "scale(0)",
+          opacity: 0.8
+        },
+        {
+          transform: "scale(1)",
+          opacity: 0
+        }
+      ],
+      {
+        duration: 480,
+        easing: "cubic-bezier(0.2, 0.7, 0.2, 1)"
+      }
+    );
+
+    animation.finished
+      .catch(() => {
+        // Cancellation needs no user-facing error.
+      })
+      .finally(() => {
+        ripple.remove();
+      });
+  });
+}
+
+enableTapRipple(card);
+enableTapRipple($("next"));
 
 // --------------------------------------------------
 // Startup
