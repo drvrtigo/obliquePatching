@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "b001",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a square wave.",
+    "detail": "Patch a square-wave output into a VCA and give it a simple envelope. Leave effects off until the basic voice feels useful."
+  },
+  {
+    "id": "b002",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a sine wave.",
+    "detail": "Use a sine as the only audio source. Establish pitch, level, and phrasing before adding another waveform."
+  },
+  {
+    "id": "b003",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a triangle wave.",
+    "detail": "Build a simple triangle-wave voice with a VCA and envelope. Choose a register before adding modulation."
+  },
+  {
+    "id": "b004",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a sawtooth wave.",
+    "detail": "Patch a saw through a low-pass filter and VCA. Begin with modest resonance and shape the cutoff by hand."
+  },
+  {
+    "id": "b005",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a narrow pulse.",
+    "detail": "Use a pulse-width control to choose a narrow but audible pulse. Hold its width steady while you establish a phrase."
+  },
+  {
+    "id": "b006",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with white noise.",
+    "detail": "Patch white noise through a filter and VCA. Use an envelope to make a clearly defined event."
+  },
+  {
+    "id": "b007",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with filtered noise.",
+    "detail": "Set a band-pass filter to a useful region, then shape the result with a VCA. Begin with one repeated sound."
+  },
+  {
+    "id": "b008",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with one oscillator and no filter.",
+    "detail": "Patch the oscillator through a VCA and shape its amplitude. Choose the waveform directly rather than relying on a filter sweep."
+  },
+  {
+    "id": "b009",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with two oscillators in unison.",
+    "detail": "Tune two oscillators to the same pitch and mix them at conservative levels. Begin without detuning or effects."
+  },
+  {
+    "id": "b010",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a quiet FM tone.",
+    "detail": "Use a suitable oscillator FM input with modulation depth near zero. Increase depth gently, then hold a setting while shaping the voice."
+  },
+  {
+    "id": "b011",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with a wavetable held still.",
+    "detail": "Choose one wavetable position and leave scanning off. Establish an envelope and phrase before moving through the table."
+  },
+  {
+    "id": "b012",
+    "modes": [
+      "begin"
+    ],
+    "category": "tone",
+    "prompt": "Start with one recorded sound.",
+    "detail": "Choose a sample and play it without layering. Set its level, playback range, and envelope before adding processing."
+  },
+  {
+    "id": "b013",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in D Dorian.",
+    "detail": "Use D, E, F, G, A, B, and C. Return to D as your home note; start with a short phrase before using the whole scale."
+  },
+  {
+    "id": "b014",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in C major.",
+    "detail": "Use C, D, E, F, G, A, and B. Begin and resolve phrases on C before adding wider movement."
+  },
+  {
+    "id": "b015",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in A natural minor.",
+    "detail": "Use A, B, C, D, E, F, and G. Keep A as the tonal center while building a small repeating phrase."
+  },
+  {
+    "id": "b016",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in E Phrygian.",
+    "detail": "Use E, F, G, A, B, C, and D. Make E the home note and try a phrase using E, F, and G first."
+  },
+  {
+    "id": "b017",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in F Lydian.",
+    "detail": "Use F, G, A, B, C, D, and E. Hold or return to F and include B in a short phrase."
+  },
+  {
+    "id": "b018",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in G Mixolydian.",
+    "detail": "Use G, A, B, C, D, E, and F. Treat G as home rather than simply running up the notes of C major."
+  },
+  {
+    "id": "b019",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in D natural minor.",
+    "detail": "Use D, E, F, G, A, Bb, and C. Build a short pattern that repeatedly returns to D."
+  },
+  {
+    "id": "b020",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in E natural minor.",
+    "detail": "Use E, F#, G, A, B, C, and D. Choose three or four of those notes for the first phrase."
+  },
+  {
+    "id": "b021",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in G major.",
+    "detail": "Use G, A, B, C, D, E, and F#. Start with G as your reference and keep the first melody short."
+  },
+  {
+    "id": "b022",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in C natural minor.",
+    "detail": "Use C, D, Eb, F, G, Ab, and Bb. Begin with C, Eb, and G, then add other notes as needed."
+  },
+  {
+    "id": "b023",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Work in F major.",
+    "detail": "Use F, G, A, Bb, C, D, and E. Establish F as home before extending the phrase."
+  },
+  {
+    "id": "b024",
+    "modes": [
+      "begin"
+    ],
+    "category": "pitch",
+    "prompt": "Use only D, F, A, and C.",
+    "detail": "Choose these four pitches in any octave. Build the first pattern without adding another pitch."
+  },
+  {
+    "id": "b025",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Set the tempo to 80 BPM.",
+    "detail": "Use 80 BPM as the initial quarter-note pulse. Start with one event per beat before choosing a subdivision."
+  },
+  {
+    "id": "b026",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Set the tempo to 120 BPM.",
+    "detail": "Use 120 BPM as the initial quarter-note pulse. Establish a simple pattern before adding clock divisions."
+  },
+  {
+    "id": "b027",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Set the tempo to 140 BPM.",
+    "detail": "Start at 140 BPM with a sparse pattern. Leave enough empty steps to hear the spacing clearly."
+  },
+  {
+    "id": "b028",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with quarter notes.",
+    "detail": "Trigger one voice on each beat. Keep the pattern even while choosing pitch and articulation."
+  },
+  {
+    "id": "b029",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with eighth notes.",
+    "detail": "Divide each quarter-note beat into two events. Begin with an even pattern and a single voice."
+  },
+  {
+    "id": "b030",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with sixteenth notes.",
+    "detail": "Divide each beat into four steps. Activate only a few steps before filling out the pattern."
+  },
+  {
+    "id": "b031",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with a three-step sequence.",
+    "detail": "Set a sequence length of three and use a steady clock. Choose a small pitch set and let it repeat."
+  },
+  {
+    "id": "b032",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with a five-step sequence.",
+    "detail": "Use five steps at a consistent rate. Establish the loop without forcing it into a longer pattern yet."
+  },
+  {
+    "id": "b033",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with a seven-step sequence.",
+    "detail": "Choose seven steps and a steady clock. Keep timbre fixed while you find the first phrase."
+  },
+  {
+    "id": "b034",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with one hit every two beats.",
+    "detail": "Use a half-note event at your chosen tempo. Let the silence and decay occupy the space between hits."
+  },
+  {
+    "id": "b035",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with hits on steps 1, 4, and 7.",
+    "detail": "Use an eight-step loop and activate only steps 1, 4, and 7. Keep the initial sounds identical."
+  },
+  {
+    "id": "b036",
+    "modes": [
+      "begin"
+    ],
+    "category": "rhythm",
+    "prompt": "Start with a rest on the first step.",
+    "detail": "Use a short sequence with step 1 muted. Establish the other events before deciding whether the opening silence should remain."
+  },
+  {
+    "id": "b037",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with short, plucked notes.",
+    "detail": "Use a fast attack, short decay, and little or no sustain. Let each note fall away before the next one."
+  },
+  {
+    "id": "b038",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a slow attack.",
+    "detail": "Set the attack near one second and use a gate long enough to hear the rise. Begin with a held or slowly changing pitch."
+  },
+  {
+    "id": "b039",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a long release.",
+    "detail": "Use a release around two seconds as a starting point. Space the gates so you can hear how the notes overlap."
+  },
+  {
+    "id": "b040",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a sustained gate.",
+    "detail": "Hold a gate high and shape the sound while it remains open. Establish a steady tone before adding separate note events."
+  },
+  {
+    "id": "b041",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with no sustain.",
+    "detail": "Set sustain to zero and use attack and decay to define each note. Begin with one repeated trigger."
+  },
+  {
+    "id": "b042",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with legato phrasing.",
+    "detail": "Keep the voice open between connected notes, using your sequencer or envelope behavior as available. Begin with a slow two-note phrase."
+  },
+  {
+    "id": "b043",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with detached notes.",
+    "detail": "Use short gates and an envelope that leaves audible gaps. Keep the pitches simple while defining the phrasing."
+  },
+  {
+    "id": "b044",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a swell and a quick ending.",
+    "detail": "Choose a slow attack and short release. Use gates long enough to reach the top of the swell."
+  },
+  {
+    "id": "b045",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a sharp attack and a long tail.",
+    "detail": "Use a quick attack and a longer decay or release. Leave space between events so the tail remains audible."
+  },
+  {
+    "id": "b046",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with a filter envelope.",
+    "detail": "Build a voice whose filter opens briefly on each event. Keep the amplitude contour simple while choosing the filter movement."
+  },
+  {
+    "id": "b047",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with equal-length notes.",
+    "detail": "Set a consistent gate length for every event. Establish the pattern before varying its articulation."
+  },
+  {
+    "id": "b048",
+    "modes": [
+      "begin"
+    ],
+    "category": "articulation",
+    "prompt": "Start with alternating short and long gates.",
+    "detail": "Use the same pitch for both gate lengths. Choose envelope settings that make the difference in duration easy to hear."
+  },
+  {
+    "id": "b049",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start completely dry.",
+    "detail": "Leave delay and reverb out of the audio path. Establish the voice and phrasing before choosing an acoustic space."
+  },
+  {
+    "id": "b050",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start in mono.",
+    "detail": "Build a centered mono signal. Work on tone and arrangement before introducing stereo movement."
+  },
+  {
+    "id": "b051",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with a short room.",
+    "detail": "Choose a short room-like reverb at a low wet level. Keep the source clearly in front of its tail."
+  },
+  {
+    "id": "b052",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with a long reverb tail.",
+    "detail": "Choose a long decay and play sparse events. Set wet level conservatively so the source is still identifiable."
+  },
+  {
+    "id": "b053",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with one audible echo.",
+    "detail": "Use a delay with low feedback so the first repeat is the main response. Set its level below the dry event."
+  },
+  {
+    "id": "b054",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with quarter-note delay.",
+    "detail": "Match the delay time to one quarter-note beat at your tempo. Begin with low feedback and a quiet return."
+  },
+  {
+    "id": "b055",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with dotted-eighth delay.",
+    "detail": "Set the delay to three quarters of a quarter-note beat. Use a sparse source pattern and low feedback first."
+  },
+  {
+    "id": "b056",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with slapback delay.",
+    "detail": "Try a short delay around 90 ms and low feedback. Keep the dry source louder than the repeat."
+  },
+  {
+    "id": "b057",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with a narrow stereo image.",
+    "detail": "Keep both channels close to center. Introduce width only after the basic sound and phrase are established."
+  },
+  {
+    "id": "b058",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with a dry bass and a wet lead.",
+    "detail": "Keep the lower voice direct and add a modest effect return to the higher voice. Begin with one simple part in each register."
+  },
+  {
+    "id": "b059",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with the effect return very quiet.",
+    "detail": "Set a dry sound first, then raise the return just enough to notice. Use that as the initial balance."
+  },
+  {
+    "id": "b060",
+    "modes": [
+      "begin"
+    ],
+    "category": "space",
+    "prompt": "Start with a long gap between sounds.",
+    "detail": "Trigger one event, listen through its tail, and wait before the next. Set the pacing from what you can actually hear."
+  },
+  {
+    "id": "b061",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start quietly.",
+    "detail": "Set a conservative listening level and a clear, unclipped signal path. Build the patch without relying on loudness for excitement."
+  },
+  {
+    "id": "b062",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with three accent levels.",
+    "detail": "Choose soft, medium, and strong amplitudes. Apply them to an otherwise simple repeated event."
+  },
+  {
+    "id": "b063",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with an accent every fourth event.",
+    "detail": "Keep pitch and timing steady. Raise the amplitude of every fourth event without clipping the output."
+  },
+  {
+    "id": "b064",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with every second note quieter.",
+    "detail": "Alternate two amplitude levels. Keep gate length and timbre the same initially."
+  },
+  {
+    "id": "b065",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with a gradual crescendo.",
+    "detail": "Use one phrase that moves from quiet to louder. Leave pitch and rhythm unchanged while setting the amplitude range."
+  },
+  {
+    "id": "b066",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with a gradual decrescendo.",
+    "detail": "Let a repeating phrase become progressively quieter. Keep the final events audible enough to hear their role."
+  },
+  {
+    "id": "b067",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with one quiet voice and one louder voice.",
+    "detail": "Give the parts clearly different amplitude roles. Use simple material so their balance is the first decision."
+  },
+  {
+    "id": "b068",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with equal accents.",
+    "detail": "Make every event the same level. Establish the pattern before deciding where emphasis belongs."
+  },
+  {
+    "id": "b069",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with amplitude modulation only.",
+    "detail": "Hold pitch and timbre steady and use a slow control on a VCA. Begin with modest depth around an audible level."
+  },
+  {
+    "id": "b070",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with a silent VCA.",
+    "detail": "Close the VCA, then open it with an envelope or manual gesture. Build the first phrase from deliberate entrances and exits."
+  },
+  {
+    "id": "b071",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with a soft ending to each phrase.",
+    "detail": "Reduce the amplitude of the last event in a short loop. Keep the rest of the pattern even."
+  },
+  {
+    "id": "b072",
+    "modes": [
+      "begin"
+    ],
+    "category": "dynamics",
+    "prompt": "Start with one accent per phrase.",
+    "detail": "Choose a single event to emphasize in each repeat. Leave the other events quieter and comparable in level."
+  },
+  {
+    "id": "b073",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a straight pulse.",
+    "detail": "Keep the clock even and swing off. Choose a simple rhythm before introducing any timing variation."
+  },
+  {
+    "id": "b074",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a little swing.",
+    "detail": "Apply a modest amount of swing to an eighth- or sixteenth-note pattern. Keep the sound consistent while choosing the feel."
+  },
+  {
+    "id": "b075",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a halftime feel.",
+    "detail": "Choose a steady tempo but place the main accents farther apart. Let the subdivisions stay available without filling every one."
+  },
+  {
+    "id": "b076",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a backbeat.",
+    "detail": "In a four-beat bar, place a clear accent on beats 2 and 4. Begin with a minimal supporting pulse."
+  },
+  {
+    "id": "b077",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with offbeat accents.",
+    "detail": "Use a steady beat as your reference and emphasize the events between beats. Keep the first pattern sparse."
+  },
+  {
+    "id": "b078",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a waltz pulse.",
+    "detail": "Count three quarter-note beats per bar and emphasize beat 1. Build a short phrase inside that grouping."
+  },
+  {
+    "id": "b079",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a five-beat bar.",
+    "detail": "Group five quarter-note beats as 3 plus 2. Make the first beat of each group audible before adding complexity."
+  },
+  {
+    "id": "b080",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a seven-beat bar.",
+    "detail": "Group seven quarter-note beats as 4 plus 3. Use accents to establish that grouping."
+  },
+  {
+    "id": "b081",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a slow, even drone.",
+    "detail": "Use a held sound and one slow modulation. Avoid rhythmic triggers until its movement has a clear pace."
+  },
+  {
+    "id": "b082",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with manual timing.",
+    "detail": "Trigger a simple voice by hand rather than from a clock. Find a comfortable spacing and repeat it."
+  },
+  {
+    "id": "b083",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a two-beat call and response.",
+    "detail": "Use one short gesture for the first two beats and a related answer for the next two. Begin with the same sound for both."
+  },
+  {
+    "id": "b084",
+    "modes": [
+      "begin"
+    ],
+    "category": "feel",
+    "prompt": "Start with a repeating triplet figure.",
+    "detail": "Fit three evenly spaced events into one quarter-note beat. Use only a few pitches while the subdivision becomes clear."
+  },
+  {
+    "id": "b085",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a low C.",
+    "detail": "Tune one oscillator to a comfortable bass-register C. Shape a simple sound before introducing a sequence."
+  },
+  {
+    "id": "b086",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a middle-register D.",
+    "detail": "Choose a D that sits comfortably above the bass range. Keep it as the first reference while shaping the voice."
+  },
+  {
+    "id": "b087",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a high, quiet tone.",
+    "detail": "Choose an upper-register pitch and keep monitoring conservative. Use a simple envelope before adding another layer."
+  },
+  {
+    "id": "b088",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start within a single octave.",
+    "detail": "Keep the initial pitch sequence inside one octave. Make the first phrase with a small number of notes."
+  },
+  {
+    "id": "b089",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with two octaves of separation.",
+    "detail": "Choose two voices with the same pitch class, two octaves apart. Balance them before adding independent melodies."
+  },
+  {
+    "id": "b090",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a bass voice only.",
+    "detail": "Build a lower-register voice and a short phrase. Leave the upper register empty until the bass has a clear role."
+  },
+  {
+    "id": "b091",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with no bass.",
+    "detail": "Keep the first voice in the middle or upper register. Build the initial texture without a low anchor."
+  },
+  {
+    "id": "b092",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a rising four-note shape.",
+    "detail": "Choose four pitches that move upward within a modest range. Repeat the contour before changing its direction."
+  },
+  {
+    "id": "b093",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with a falling four-note shape.",
+    "detail": "Choose four pitches that move downward. Keep rhythm and articulation even while you establish the contour."
+  },
+  {
+    "id": "b094",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start on a single pitch.",
+    "detail": "Repeat one note and vary nothing but its placement or duration. Add another pitch only after the phrase feels intentional."
+  },
+  {
+    "id": "b095",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with an octave pattern.",
+    "detail": "Alternate a root and its octave. Keep the first rhythm simple enough to hear the register change."
+  },
+  {
+    "id": "b096",
+    "modes": [
+      "begin"
+    ],
+    "category": "register",
+    "prompt": "Start with two voices in the same register.",
+    "detail": "Choose nearby ranges and simple contrasting tones. Establish how the voices share that space before spreading them apart."
+  },
+  {
+    "id": "b097",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with an open fifth.",
+    "detail": "Use C and G, or transpose both notes together. Leave out the third while choosing texture and phrasing."
+  },
+  {
+    "id": "b098",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a minor third.",
+    "detail": "Use D and F as the first two pitches. Try them held together or alternating in a simple pattern."
+  },
+  {
+    "id": "b099",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a major third.",
+    "detail": "Use C and E as your initial pitch pair. Hold or alternate them before adding another interval."
+  },
+  {
+    "id": "b100",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a C major triad.",
+    "detail": "Use C, E, and G. Play them together if available, or sequence them as a short arpeggio."
+  },
+  {
+    "id": "b101",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a D minor triad.",
+    "detail": "Use D, F, and A. Begin with a slow arpeggio or a sustained voicing."
+  },
+  {
+    "id": "b102",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a suspended chord.",
+    "detail": "Use C, F, and G. Keep E out of the initial phrase and listen to the resulting shape."
+  },
+  {
+    "id": "b103",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a root and a ninth.",
+    "detail": "Use C and the D above the next C. Let the wider interval define the first sound."
+  },
+  {
+    "id": "b104",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a semitone pair.",
+    "detail": "Use E and F at a comfortable register and low level. Hold them or alternate them deliberately."
+  },
+  {
+    "id": "b105",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a whole-tone fragment.",
+    "detail": "Use C, D, E, F#, G#, and A#. Pick a few of these pitches for the first pattern."
+  },
+  {
+    "id": "b106",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with A minor pentatonic.",
+    "detail": "Use A, C, D, E, and G. Keep the first phrase inside one octave."
+  },
+  {
+    "id": "b107",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with C major pentatonic.",
+    "detail": "Use C, D, E, G, and A. Establish a short repeating phrase before changing its note set."
+  },
+  {
+    "id": "b108",
+    "modes": [
+      "begin"
+    ],
+    "category": "harmony",
+    "prompt": "Start with a root drone and two melody notes.",
+    "detail": "Hold D as a drone and use F and A above it. Begin with slow changes so the relationships remain clear."
+  },
+  {
+    "id": "b109",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a slow triangle LFO.",
+    "detail": "Send a slow triangle to one suitable parameter through attenuation. Keep its range small while establishing the sound."
+  },
+  {
+    "id": "b110",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a slow sine LFO.",
+    "detail": "Use a smooth cycle lasting several seconds. Apply it gently to one destination and leave other modulation disconnected."
+  },
+  {
+    "id": "b111",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with sample-and-hold modulation.",
+    "detail": "Sample a control source at a steady, slow rate. Attenuate the result before applying it to a suitable destination."
+  },
+  {
+    "id": "b112",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a four-step filter pattern.",
+    "detail": "Choose four cutoff levels and repeat them at a steady rate. Keep the oscillator pitch fixed initially."
+  },
+  {
+    "id": "b113",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a filter sweep by hand.",
+    "detail": "Build a simple voice and move cutoff manually. Choose a useful range before automating it."
+  },
+  {
+    "id": "b114",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with one envelope controlling two destinations.",
+    "detail": "Send a contour to amplitude and one tone parameter, attenuating as needed. Establish useful ranges for both."
+  },
+  {
+    "id": "b115",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with subtle pulse-width modulation.",
+    "detail": "Use a pulse waveform and a slow modulation at low depth. Keep the width away from silent extremes."
+  },
+  {
+    "id": "b116",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a slow pan.",
+    "detail": "If stereo panning is available, move one voice gently between channels. Keep the rest of the patch still."
+  },
+  {
+    "id": "b117",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with a held random value.",
+    "detail": "Generate or choose one random control value and hold it for a whole phrase. Change it only at the next phrase boundary."
+  },
+  {
+    "id": "b118",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with every fourth gate opening a filter.",
+    "detail": "Use a regular event stream and a slower accent contour on cutoff. Keep the filter movement small at first."
+  },
+  {
+    "id": "b119",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with an envelope you trigger by hand.",
+    "detail": "Send a manual trigger to a contour and use it to shape one voice. Find a useful gesture before adding a clock."
+  },
+  {
+    "id": "b120",
+    "modes": [
+      "begin"
+    ],
+    "category": "movement",
+    "prompt": "Start with no modulation.",
+    "detail": "Set the sound using fixed controls and a simple note pattern. Add movement only after the starting tone is clear."
+  }
+]
