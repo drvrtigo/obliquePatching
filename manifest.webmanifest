@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Oblique Patching",
-  "short_name": "Oblique Patching",
-  "description": "Strategies for modular synthesis.",
+  "name": "obliquePatching",
+  "short_name": "obliquePatching",
+  "description": "Begin, explore, or disrupt a modular patch.",
   "lang": "en",
   "start_url": "./",
   "scope": "./",

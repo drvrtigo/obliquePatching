@@ -1,16 +1,21 @@
 <!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#171917"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Oblique Patching">
-<meta name="description" content="A different direction for your modular patch. Flip a card. Try an idea.">
-<title>Oblique Patching</title><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"><link rel="icon" type="image/png" href="./icons/icon-192.png"><link rel="stylesheet" href="./styles.css"><script src="./app.js" defer></script>
+<meta name="theme-color" content="#171917"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="obliquePatching">
+<meta name="description" content="Begin, explore, or disrupt a modular patch. Flip a card. Try an idea.">
+<title>obliquePatching</title><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"><link rel="icon" type="image/png" href="./icons/icon-192.png"><link rel="stylesheet" href="./styles.css"><script src="./app.js" defer></script>
 </head><body><main>
-<header hidden><h1>Oblique Patching</h1><p>Strategies for modular synthesis</p></header>
+<header hidden><h1>obliquePatching</h1><p>Strategies for modular synthesis</p></header>
+<div class="modes" role="group" aria-label="Choose the intent for your next card">
+<button type="button" class="mode" data-mode="begin" aria-pressed="false" title="Find a starting point" disabled>Begin</button>
+<button type="button" class="mode" data-mode="explore" aria-pressed="true" title="Hear more in what is already happening" disabled>Explore</button>
+<button type="button" class="mode" data-mode="disrupt" aria-pressed="false" title="Challenge a decision or break a habit" disabled>Disrupt</button>
+</div>
 <button type="button" class="card" id="card" aria-label="Loading strategies" aria-pressed="false" disabled><span class="inner">
-<span class="face front" id="front"><span class="label">A different direction</span><span class="prompt" id="prompt">Loading the deck.</span><span class="foot"><span class="number"></span><span>Tap to explore ↗</span></span></span>
+<span class="face front" id="front"><span class="label" id="card-mode">A different direction</span><span class="prompt" id="prompt">Loading the deck.</span><span class="foot"><span class="number"></span><span>Tap to explore ↗</span></span></span>
 <span class="face back" id="back" aria-hidden="true"><span class="label">One way into it</span><span class="detail" id="detail"></span><span class="foot"><span class="number"></span><span>Tap to return ↶</span></span></span>
 </span></button>
-<div class="actions"><button type="button" class="next" id="next" disabled>New card ↗</button></div>
+<div class="actions"><button type="button" class="next" id="next" disabled><span id="next-label">New card ↗</span></button></div>
 <p class="hint" id="hint">Tap the card to flip · Space for a new card</p>
 <p class="error" id="error" role="alert" hidden></p><div class="sr-only" id="announcement" role="status" aria-live="polite" aria-atomic="true"></div>
 <noscript><p>Please enable JavaScript to draw and flip cards.</p></noscript>

@@ -1,562 +1,249 @@
 "use strict";
 
 const $ = id => document.getElementById(id);
-
 const card = $("card");
 const inner = card.querySelector(".inner");
+const modeButtons = [...document.querySelectorAll("[data-mode]")];
+const MODES = {
+  begin: { label: "Begin", description: "Find a starting point." },
+  explore: { label: "Explore", description: "Hear more in what is already happening." },
+  disrupt: { label: "Disrupt", description: "Challenge a decision or break a habit." }
+};
 
 let cards = [];
-let bag = [];
+let selectedMode = "explore";
+let currentMode = null;
 let current = -1;
 let flipped = false;
 let loading = false;
 let drawing = false;
+let bags = { begin: [], explore: [], disrupt: [] };
 
-// --------------------------------------------------
-// Deck validation
-// --------------------------------------------------
-
+// Strategy text and intent tags live entirely in strategies.json.
 function validateDeck(data) {
   if (!Array.isArray(data) || !data.length) {
-    throw new Error(
-      "strategies.json must contain a nonempty array."
-    );
+    throw new Error("strategies.json must contain a nonempty array.");
   }
-
   const ids = new Set();
-
-  for (let i = 0; i < data.length; i++) {
-    const strategy = data[i];
-
-    if (
-      !strategy ||
-      typeof strategy.id !== "string" ||
-      !strategy.id.trim() ||
-      typeof strategy.prompt !== "string" ||
-      !strategy.prompt.trim() ||
-      typeof strategy.detail !== "string" ||
-      !strategy.detail.trim()
-    ) {
-      throw new Error(
-        `Card ${i + 1} needs nonempty id, prompt, and detail strings.`
-      );
+  data.forEach((c, index) => {
+    if (!c || ![c.id, c.prompt, c.detail].every(v => typeof v === "string" && v.trim())) {
+      throw new Error(`Card ${index + 1} needs nonempty id, prompt, and detail strings.`);
     }
-
-    if (ids.has(strategy.id)) {
-      throw new Error(
-        `Duplicate card ID: ${strategy.id}`
-      );
+    if (ids.has(c.id)) throw new Error(`Duplicate card ID: ${c.id}`);
+    ids.add(c.id);
+    if (!Array.isArray(c.modes) || !c.modes.length ||
+        c.modes.some(m => !Object.hasOwn(MODES, m)) ||
+        new Set(c.modes).size !== c.modes.length) {
+      throw new Error(`Card ${c.id} needs unique modes chosen from begin, explore, and disrupt.`);
     }
-
-    ids.add(strategy.id);
-  }
-
+  });
   return data;
 }
 
-// --------------------------------------------------
-// Shuffle
-// --------------------------------------------------
+function pool(mode) {
+  return cards.map((_, i) => i).filter(i => cards[i].modes.includes(mode));
+}
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-
     [array[i], array[j]] = [array[j], array[i]];
   }
-
   return array;
 }
 
-// --------------------------------------------------
-// Card sizing
-// --------------------------------------------------
+function updateControls() {
+  const busy = loading || drawing;
+  card.disabled = busy || current < 0;
+  $("next").disabled = busy || (cards.length > 0 && !pool(selectedMode).length);
+  modeButtons.forEach(button => {
+    const mode = button.dataset.mode;
+    button.setAttribute("aria-pressed", String(mode === selectedMode));
+    button.disabled = busy || !pool(mode).length;
+  });
+  if (!cards.length) return;
+  if (currentMode && currentMode !== selectedMode) {
+    $("hint").textContent = `${MODES[selectedMode].label} selected for the next card · Current card unchanged`;
+  } else {
+    $("hint").textContent = "Tap the card to flip · Space for a new card";
+  }
+  $("next").setAttribute("aria-label", `New ${MODES[selectedMode].label.toLowerCase()} card`);
+}
+
+function selectMode(mode) {
+  if (loading || drawing || !Object.hasOwn(MODES, mode) || !pool(mode).length) return;
+  selectedMode = mode;
+  updateControls();
+  $("announcement").textContent = `${MODES[mode].label}. ${MODES[mode].description} Applies to your next draw.`;
+}
 
 function fitCard() {
   if (!cards.length) return;
-
   card.style.removeProperty("height");
-
-  const requiredHeights = [
-    ...card.querySelectorAll(".face")
-  ].map(face => {
-    const faceStyle = getComputedStyle(face);
-
-    const contentHeight = [...face.children].reduce(
-      (total, child) => {
-        const childStyle = getComputedStyle(child);
-
-        return (
-          total +
-          child.getBoundingClientRect().height +
-          (parseFloat(childStyle.marginTop) || 0) +
-          (parseFloat(childStyle.marginBottom) || 0)
-        );
-      },
-      0
-    );
-
-    return (
-      contentHeight +
-      (parseFloat(faceStyle.paddingTop) || 0) +
-      (parseFloat(faceStyle.paddingBottom) || 0) +
-      24
-    );
+  const required = [...card.querySelectorAll(".face")].map(face => {
+    const style = getComputedStyle(face);
+    // offsetHeight is unaffected by the face's 3D rotation.
+    const content = [...face.children].reduce((sum, child) => {
+      const s = getComputedStyle(child);
+      return sum + child.offsetHeight + (parseFloat(s.marginTop) || 0) + (parseFloat(s.marginBottom) || 0);
+    }, 0);
+    return content + (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0) + 24;
   });
-
-  const height = Math.ceil(
-    Math.max(
-      card.getBoundingClientRect().height,
-      ...requiredHeights
-    )
-  );
-
-  card.style.height = `${height}px`;
+  card.style.height = `${Math.ceil(Math.max(card.offsetHeight, ...required))}px`;
 }
-
-// --------------------------------------------------
-// Accessibility
-// --------------------------------------------------
 
 function describe() {
   if (current < 0 || !cards[current]) return;
-
-  const strategy = cards[current];
-
-  card.setAttribute(
-    "aria-pressed",
-    String(flipped)
-  );
-
-  card.setAttribute(
-    "aria-label",
-    flipped
-      ? `${strategy.detail} Flip to prompt.`
-      : `${strategy.prompt} Flip for detail.`
-  );
-
-  $("front").setAttribute(
-    "aria-hidden",
-    String(flipped)
-  );
-
-  $("back").setAttribute(
-    "aria-hidden",
-    String(!flipped)
-  );
-
-  $("announcement").textContent = flipped
-    ? strategy.detail
-    : strategy.prompt;
+  const c = cards[current];
+  card.setAttribute("aria-pressed", String(flipped));
+  card.setAttribute("aria-label", flipped ? `${c.detail} Flip to prompt.` : `${MODES[currentMode].label}. ${c.prompt} Flip for detail.`);
+  $("front").setAttribute("aria-hidden", String(flipped));
+  $("back").setAttribute("aria-hidden", String(!flipped));
+  $("announcement").textContent = flipped ? c.detail : `${MODES[currentMode].label}. ${c.prompt}`;
 }
-
-// --------------------------------------------------
-// Immediate card update
-// --------------------------------------------------
 
 function renderNewCard() {
-  if (!cards.length) return;
-
-  if (!bag.length) {
-    bag = shuffle(cards.map((_, index) => index));
-
-    // Avoid an immediate repeat across shuffle boundaries.
-    if (
-      bag.length > 1 &&
-      bag[bag.length - 1] === current
-    ) {
-      [bag[0], bag[bag.length - 1]] = [
-        bag[bag.length - 1],
-        bag[0]
-      ];
-    }
+  const eligible = pool(selectedMode);
+  if (!eligible.length) return;
+  if (!bags[selectedMode].length) bags[selectedMode] = shuffle([...eligible]);
+  const bag = bags[selectedMode];
+  // Prefer a different card even when switching between overlapping pools.
+  if (bag[bag.length - 1] === current && bag.length > 1) {
+    [bag[0], bag[bag.length - 1]] = [bag[bag.length - 1], bag[0]];
   }
-
   current = bag.pop();
+  currentMode = selectedMode;
   flipped = false;
-
-  // Reset to the prompt side without a flip animation.
   inner.style.transition = "none";
   card.classList.remove("flipped");
-
+  $("card-mode").textContent = MODES[currentMode].label;
   $("prompt").textContent = cards[current].prompt;
   $("detail").textContent = cards[current].detail;
-
-  document.querySelectorAll(".number").forEach(element => {
-    element.textContent =
-      `${String(current + 1).padStart(3, "0")} / ${cards.length}`;
+  document.querySelectorAll(".number").forEach(el => {
+    el.textContent = `${String(eligible.indexOf(current) + 1).padStart(3, "0")} / ${eligible.length}`;
   });
-
   fitCard();
-
-  // Apply the reset before restoring the flip transition.
   void inner.offsetHeight;
   inner.style.transition = "";
-
   describe();
+  updateControls();
 }
 
-// --------------------------------------------------
-// Animated card draw — text only
-// --------------------------------------------------
-
 async function draw() {
-  if (!cards.length || drawing || loading) return;
-
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  // Initial load and reduced-motion mode update instantly.
-  if (
-    current === -1 ||
-    reduceMotion ||
-    typeof card.animate !== "function"
-  ) {
+  if (!cards.length || loading || drawing || !pool(selectedMode).length) return;
+  if (current === -1 || matchMedia("(prefers-reduced-motion: reduce)").matches || typeof card.animate !== "function") {
     renderNewCard();
     return;
   }
-
   drawing = true;
-  card.disabled = true;
-  $("next").disabled = true;
-
+  updateControls();
   card.setAttribute("aria-busy", "true");
-
-  // Target text only, leaving both card backgrounds untouched.
-  const textElements = [
-    ...card.querySelectorAll(
-      ".label, .prompt, .detail, .foot"
-    )
-  ];
-
-  let fadeOutAnimations = [];
-  let fadeInAnimations = [];
-
+  const text = [...card.querySelectorAll(".label, .prompt, .detail, .foot")];
+  let outgoing = [], incoming = [];
   try {
-    fadeOutAnimations = textElements.map(element => {
-      return element.animate(
-        [
-          { opacity: 1 },
-          { opacity: 0 }
-        ],
-        {
-          duration: 160,
-          easing: "ease-in",
-          fill: "forwards"
-        }
-      );
-    });
-
-    await Promise.all(
-      fadeOutAnimations.map(animation => animation.finished)
-    );
-
-    // Replace the strategy while its text is invisible.
+    outgoing = text.map(el => el.animate([{opacity: 1}, {opacity: 0}], {duration: 160, easing: "ease-in", fill: "forwards"}));
+    await Promise.all(outgoing.map(a => a.finished));
     renderNewCard();
-
-    fadeInAnimations = textElements.map(element => {
-      return element.animate(
-        [
-          { opacity: 0 },
-          { opacity: 1 }
-        ],
-        {
-          duration: 240,
-          easing: "ease-out",
-          fill: "forwards"
-        }
-      );
-    });
-
-    // Remove outgoing fades after incoming fades are in place.
-    fadeOutAnimations.forEach(animation => {
-      animation.cancel();
-    });
-
-    await Promise.all(
-      fadeInAnimations.map(animation => animation.finished)
-    );
+    incoming = text.map(el => el.animate([{opacity: 0}, {opacity: 1}], {duration: 240, easing: "ease-out", fill: "forwards"}));
+    outgoing.forEach(a => a.cancel());
+    await Promise.all(incoming.map(a => a.finished));
   } catch (error) {
-    if (error.name !== "AbortError") {
-      console.warn("Card transition failed:", error);
-    }
+    if (error.name !== "AbortError") console.warn("Card transition failed:", error);
   } finally {
-    fadeOutAnimations.forEach(animation => {
-      animation.cancel();
-    });
-
-    fadeInAnimations.forEach(animation => {
-      animation.cancel();
-    });
-
+    [...outgoing, ...incoming].forEach(a => a.cancel());
     drawing = false;
-    card.disabled = false;
-    $("next").disabled = false;
-
     card.removeAttribute("aria-busy");
+    updateControls();
   }
 }
 
-// --------------------------------------------------
-// Load strategies
-// --------------------------------------------------
-
 async function loadDeck() {
   if (loading || drawing) return;
-
   loading = true;
-  card.disabled = true;
-  $("next").disabled = true;
+  updateControls();
   $("error").hidden = true;
-
   try {
-    const response = await fetch("./strategies.json", {
-      cache: "no-store"
-    });
-
-    if (!response.ok) {
-      throw new Error(
-        `Could not load strategies.json (HTTP ${response.status}).`
-      );
-    }
-
-    const data = await response.json();
-
-    cards = validateDeck(data);
-    bag = [];
+    const response = await fetch("./strategies.json", {cache: "no-store"});
+    if (!response.ok) throw new Error(`Could not load strategies.json (HTTP ${response.status}).`);
+    cards = validateDeck(await response.json());
+    bags = {begin: [], explore: [], disrupt: []};
     current = -1;
-    flipped = false;
-
-    $("next").textContent = "New card ↗";
-
-    // Render the initial card without a transition.
+    currentMode = null;
+    if (!pool(selectedMode).length) selectedMode = Object.keys(MODES).find(mode => pool(mode).length);
+    $("next-label").textContent = "New card ↗";
     renderNewCard();
-
-    card.disabled = false;
   } catch (error) {
-    cards = [];
-    bag = [];
-    current = -1;
-    flipped = false;
-
+    cards = []; current = -1; currentMode = null; flipped = false;
     inner.style.transition = "none";
     card.classList.remove("flipped");
     void inner.offsetHeight;
     inner.style.transition = "";
-
-    card.disabled = true;
     card.setAttribute("aria-pressed", "false");
     card.setAttribute("aria-label", "The deck could not load.");
-
     $("front").setAttribute("aria-hidden", "false");
     $("back").setAttribute("aria-hidden", "true");
-
+    $("card-mode").textContent = "A different direction";
     $("prompt").textContent = "The deck could not load.";
     $("detail").textContent = "";
     $("announcement").textContent = "The deck could not load.";
-
-    document.querySelectorAll(".number").forEach(element => {
-      element.textContent = "";
-    });
-
-    $("next").textContent = "Try again";
+    document.querySelectorAll(".number").forEach(el => el.textContent = "");
+    $("next-label").textContent = "Try again";
     $("error").hidden = false;
-
-    $("error").textContent =
-      location.protocol === "file:"
-        ? "Open the hosted GitHub Pages address, not the downloaded HTML. For local testing, use the server instructions in README.md."
-        : `${error.message} Check the JSON file and your connection, then try again.`;
+    $("error").textContent = location.protocol === "file:"
+      ? "Open the hosted GitHub Pages address, or use a local HTTP server. A downloaded HTML file cannot fetch its JSON deck directly."
+      : `${error.message} Check the deck and your connection, then try again.`;
   } finally {
     loading = false;
-    $("next").disabled = false;
+    updateControls();
   }
 }
-
-// --------------------------------------------------
-// Interaction
-// --------------------------------------------------
 
 card.addEventListener("click", () => {
-  if (!cards.length || loading || drawing) return;
-
+  if (loading || drawing || current < 0) return;
   flipped = !flipped;
-
   card.classList.toggle("flipped", flipped);
-
   describe();
 });
-
 $("next").addEventListener("click", () => {
-  if (loading || drawing) return;
-
-  if (cards.length) {
-    draw();
-  } else {
-    loadDeck();
-  }
+  if (!loading && !drawing) cards.length ? draw() : loadDeck();
 });
-
+modeButtons.forEach(button => button.addEventListener("click", () => selectMode(button.dataset.mode)));
 document.addEventListener("keydown", event => {
-  const isInteractiveTarget =
-    event.target instanceof Element &&
-    event.target.closest(
-      "button, input, textarea, select, a, summary, [contenteditable]"
-    );
-
-  if (
-    event.code !== "Space" ||
-    isInteractiveTarget ||
-    event.ctrlKey ||
-    event.metaKey ||
-    event.altKey
-  ) {
-    return;
-  }
-
+  const interactive = event.target instanceof Element && event.target.closest("button, input, textarea, select, a, summary, [contenteditable]");
+  if (event.code !== "Space" || interactive || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
   event.preventDefault();
-
-  if (
-    !event.repeat &&
-    cards.length &&
-    !loading &&
-    !drawing
-  ) {
-    draw();
-  }
+  if (!event.repeat && cards.length && !loading && !drawing) draw();
 });
-
-// --------------------------------------------------
-// Responsive sizing
-// --------------------------------------------------
-
 let resizeTimer;
-
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimer);
-
-  resizeTimer = setTimeout(fitCard, 100);
-});
-
-if (document.fonts) {
-  document.fonts.ready.then(fitCard);
-}
-
-// --------------------------------------------------
-// Tap ripple
-// --------------------------------------------------
+window.addEventListener("resize", () => {clearTimeout(resizeTimer); resizeTimer = setTimeout(fitCard, 100)});
+if (document.fonts) document.fonts.ready.then(fitCard);
 
 function enableTapRipple(button) {
   const layer = document.createElement("span");
-
   layer.className = "tap-ripple-layer";
   layer.setAttribute("aria-hidden", "true");
-
   button.appendChild(layer);
-
   button.addEventListener("pointerdown", event => {
-    if (
-      button.disabled ||
-      loading ||
-      drawing ||
-      !event.isPrimary ||
-      event.button !== 0
-    ) {
-      return;
-    }
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (
-      reduceMotion ||
-      typeof button.animate !== "function"
-    ) {
-      return;
-    }
-
+    if (button.disabled || loading || drawing || !event.isPrimary || event.button !== 0 ||
+        matchMedia("(prefers-reduced-motion: reduce)").matches || typeof button.animate !== "function") return;
     const bounds = button.getBoundingClientRect();
-
-    const x = event.clientX - bounds.left;
-    const y = event.clientY - bounds.top;
-
-    // Reach the farthest corner from the tap position.
-    const radius = Math.hypot(
-      Math.max(x, bounds.width - x),
-      Math.max(y, bounds.height - y)
-    );
-
-    const diameter = radius * 2;
-
-    // Replace any previous ripple on this control.
+    const x = event.clientX - bounds.left, y = event.clientY - bounds.top;
+    const radius = Math.hypot(Math.max(x, bounds.width - x), Math.max(y, bounds.height - y));
     layer.replaceChildren();
-
     const ripple = document.createElement("span");
-
     ripple.className = "tap-ripple";
-    ripple.style.width = `${diameter}px`;
-    ripple.style.height = `${diameter}px`;
-    ripple.style.left = `${x - radius}px`;
-    ripple.style.top = `${y - radius}px`;
-
+    Object.assign(ripple.style, {width: `${radius * 2}px`, height: `${radius * 2}px`, left: `${x - radius}px`, top: `${y - radius}px`});
     layer.appendChild(ripple);
-
-    const animation = ripple.animate(
-      [
-        {
-          transform: "scale(0)",
-          opacity: 0.8
-        },
-        {
-          transform: "scale(1)",
-          opacity: 0
-        }
-      ],
-      {
-        duration: 480,
-        easing: "cubic-bezier(0.2, 0.7, 0.2, 1)"
-      }
-    );
-
-    animation.finished
-      .catch(() => {
-        // Cancellation needs no user-facing error.
-      })
-      .finally(() => {
-        ripple.remove();
-      });
+    const animation = ripple.animate([{transform: "scale(0)", opacity: .8}, {transform: "scale(1)", opacity: 0}], {duration: 480, easing: "cubic-bezier(.2,.7,.2,1)"});
+    animation.finished.catch(() => {}).finally(() => ripple.remove());
   });
 }
-
 enableTapRipple(card);
 enableTapRipple($("next"));
-
-// --------------------------------------------------
-// Startup
-// --------------------------------------------------
-
 loadDeck();
-
-// --------------------------------------------------
-// Offline support
-// --------------------------------------------------
-
-if (
-  "serviceWorker" in navigator &&
-  window.isSecureContext
-) {
+if ("serviceWorker" in navigator && window.isSecureContext) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./sw.js", {
-        scope: "./",
-        updateViaCache: "none"
-      })
-      .catch(error => {
-        console.warn(
-          "Offline caching unavailable:",
-          error
-        );
-      });
+    navigator.serviceWorker.register("./sw.js", {scope: "./", updateViaCache: "none"})
+      .catch(error => console.warn("Offline caching unavailable:", error));
   });
 }

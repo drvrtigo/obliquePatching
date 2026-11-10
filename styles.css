@@ -14,32 +14,7 @@ button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlig
 @media(max-width:480px){main{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}.card{--card-height:440px}.face{padding:26px}.detail{font-size:21px}.prompt{font-size:clamp(27px,8vw,35px)}}
 @media(max-width:350px){.card{--card-height:470px}.face{padding:22px}.detail{font-size:19px}.foot{font-size:9px;letter-spacing:.04em}}
 @media(prefers-reduced-motion:reduce){.inner{transition:none}}
-
 /* Tap feedback */
-.next {
-  position: relative;
-}
-
-.tap-ripple-layer {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.tap-ripple {
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  background: rgba(35, 41, 33, 0.12);
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0);
-  transform-origin: center;
-}
-
-.next .tap-ripple {
-  background: rgba(215, 237, 172, 0.22);
-}
+.next{position:relative}.tap-ripple-layer{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:5}.tap-ripple{position:absolute;display:block;border-radius:50%;background:rgba(35,41,33,.12);opacity:0;pointer-events:none;transform:scale(0);transform-origin:center}.next .tap-ripple{background:rgba(215,237,172,.22)}
+/* Intent for the next draw */
+.modes{display:flex;justify-content:center;gap:8px;margin:0 0 20px}.mode{appearance:none;min-height:44px;padding:10px 15px;border:1px solid transparent;border-radius:5px;background:transparent;color:var(--muted);font-size:12px;letter-spacing:.02em}.mode[aria-pressed="true"]{border-color:#50594b;background:#22281f;color:var(--accent)}.mode:disabled{opacity:.5}@media(hover:hover){.mode:not(:disabled):hover{color:var(--paper);background:#22281f}}
